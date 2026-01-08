@@ -1,0 +1,2216 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MI & MTs Nurul Hidayah - Pendidikan Islami Berkarakter</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              nhGreen: "#047857", // Emerald 700
+              nhDark: "#064e3b", // Emerald 900
+              nhGold: "#fbbf24", // Amber 400
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              heading: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+<link rel="icon" type="image/x-icon" href="img/Kementerian_Agama_new_logo.png">
+
+    <style>
+      .fade-in-section {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        will-change: opacity, visibility;
+      }
+      .fade-in-section.is-visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* Glassmorphism untuk Navbar saat discroll */
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Overlay Gradient untuk Hero */
+      .hero-overlay {
+        background: linear-gradient(
+          rgba(4, 120, 87, 0.85),
+          rgba(6, 78, 59, 0.8)
+        );
+      }
+
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      @keyframes zoom-in {
+        from {
+          transform: scale(0.9);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      .animate-zoom-in {
+        animation: zoom-in 0.3s ease-out forwards;
+      }
+    </style>
+  </head>
+  <body class="font-sans text-gray-700 bg-gray-50 antialiased">
+    <nav
+      id="navbar"
+      class="fixed w-full z-50 transition-all duration-300 bg-white shadow-sm py-4"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-10">
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl"
+            >
+              <img
+                class="w-xl"
+                src="img/Kementerian_Agama_new_logo.png"
+                alt=""
+                srcset=""
+              />
+            </div>
+            <div>
+              <h1
+                class="text-xl font-heading font-bold text-nhDark leading-none"
+              >
+                Nurul Hidayah
+              </h1>
+              <span class="text-xs text-nhGreen font-semibold tracking-wider"
+                >MI & MTs ISLAMIC SCHOOL</span
+              >
+            </div>
+          </div>
+
+          <div class="hidden md:flex space-x-8 items-center">
+            <a
+              href="#beranda"
+              class="text-gray-600 hover:text-nhGreen font-medium transition"
+              >Beranda</a
+            >
+            <a
+              href="#profil"
+              class="text-gray-600 hover:text-nhGreen font-medium transition"
+              >Profil</a
+            >
+            <a
+              href="#akademik"
+              class="text-gray-600 hover:text-nhGreen font-medium transition"
+              >Akademik</a
+            >
+            <a
+              href="#fasilitas"
+              class="text-gray-600 hover:text-nhGreen font-medium transition"
+              >Fasilitas</a
+            >
+            <a
+              href="#galeri"
+              class="text-gray-600 hover:text-nhGreen font-medium transition"
+              >Galeri</a
+            >
+            <a
+              href="#kontak"
+              class="text-gray-600 hover:text-nhGreen font-medium transition"
+              >Kontak</a
+            >
+            <a
+              href="#ppdb"
+              class="bg-nhGreen hover:bg-nhDark text-white px-5 py-2 rounded-full font-medium transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            >
+              PPDB Online
+            </a>
+          </div>
+
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobile-menu-btn"
+              class="text-gray-600 hover:text-nhGreen focus:outline-none"
+            >
+              <i class="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-t mt-4 py-2 shadow-lg"
+      >
+        <a
+          href="#beranda"
+          class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-nhGreen font-medium"
+          >Beranda</a
+        >
+        <a
+          href="#profil"
+          class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-nhGreen font-medium"
+          >Profil</a
+        >
+        <a
+          href="#akademik"
+          class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-nhGreen font-medium"
+          >Akademik</a
+        >
+        <a
+          href="#galeri"
+          class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-nhGreen font-medium"
+          >Galeri</a
+        >
+        <a
+          href="#ppdb"
+          class="block px-4 py-3 text-nhGreen font-bold bg-green-50"
+          >PPDB Online</a
+        >
+      </div>
+    </nav>
+
+    <section
+      id="beranda"
+      class="relative h-screen min-h-[600px] flex items-center justify-center text-white overflow-hidden pb-12"
+    >
+      <div class="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+          alt="Sekolah Islam"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div class="absolute inset-0 hero-overlay z-10"></div>
+
+      <div
+        class="relative z-20 container mx-auto px-4 text-center max-w-4xl pt-16"
+      >
+        <p
+          class="text-nhGold font-heading font-medium mb-3 tracking-widest uppercase text-sm md:text-base animate-fade-in-up"
+        >
+          Assalamu’alaikum Warahmatullahi Wabarakatuh
+        </p>
+
+        <h1
+          class="text-4xl md:text-6xl font-heading font-bold mb-6 drop-shadow-md"
+        >
+          Unggul Dalam <span class="text-nhGold">Berprestasi</span>, Santun
+          Dalam <span class="text-nhGold">Berperilaku</span>
+        </h1>
+
+        <p
+          class="text-lg md:text-xl text-gray-100 mb-4 max-w-2xl mx-auto font-light"
+        >
+          MI & MTs Nurul Hidayah hadir sebagai lembaga pendidikan Islam yang
+          menanamkan nilai keimanan, ilmu pengetahuan, dan karakter mulia sejak
+          usia dini.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="#ppdb"
+            class="bg-nhGold hover:bg-yellow-500 text-nhDark font-bold py-3 px-8 rounded-full transition transform hover:scale-105 shadow-lg"
+          >
+            Daftar Sekarang
+          </a>
+          <a
+            href="#profil"
+            class="bg-transparent border-2 border-white hover:bg-white hover:text-nhGreen text-white font-bold py-3 px-8 rounded-full transition transform hover:scale-105"
+          >
+            Lihat Profil Sekolah
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce text-white/70"
+      >
+        <i class="fas fa-chevron-down text-2xl"></i>
+      </div>
+    </section>
+
+    <div
+      class="bg-white py-10 shadow-md relative z-30 -mt-10 mx-4 md:mx-auto max-w-6xl rounded-xl"
+    >
+      <div
+        class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x divide-gray-100"
+      >
+        <div class="p-2">
+          <div
+            class="text-4xl font-bold text-nhGreen counter"
+            data-target="250"
+          >
+            0
+          </div>
+          <div class="text-sm text-gray-500 uppercase tracking-wide mt-1">
+            Siswa MI
+          </div>
+        </div>
+        <div class="p-2">
+          <div
+            class="text-4xl font-bold text-nhGreen counter"
+            data-target="150"
+          >
+            0
+          </div>
+          <div class="text-sm text-gray-500 uppercase tracking-wide mt-1">
+            Siswa MTs
+          </div>
+        </div>
+        <div class="p-2">
+          <div class="text-4xl font-bold text-nhGreen counter" data-target="35">
+            0
+          </div>
+          <div class="text-sm text-gray-500 uppercase tracking-wide mt-1">
+            Guru & Staf
+          </div>
+        </div>
+        <div class="p-2">
+          <div class="text-4xl font-bold text-nhGreen counter" data-target="20">
+            0
+          </div>
+          <div class="text-sm text-gray-500 uppercase tracking-wide mt-1">
+            Tahun Mengabdi
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- tentang kami -->
+
+    <section id="profil" class="py-20 bg-white fade-in-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-nhGreen font-bold tracking-wider uppercase text-sm"
+            >Tentang Kami</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-2"
+          >
+            Mengenal Nurul Hidayah
+          </h2>
+          <div class="w-20 h-1 bg-nhGold mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl group">
+            <img
+              src="img/gedung.jpg"
+              alt="Kegiatan Belajar"
+              class="w-full h-full object-cover transform transition duration-500 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-nhDark/20 group-hover:bg-transparent transition"
+            ></div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-bold text-nhDark mb-4">
+              Sejarah & Komitmen
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              MI dan MTs Nurul Hidayah adalah lembaga pendidikan Islam yang
+              berkomitmen mencetak generasi yang cerdas, berakhlak, dan siap
+              menghadapi masa depan. Berdiri di Riau, kami memadukan kurikulum
+              nasional dengan nilai-nilai keislaman yang kental.
+            </p>
+
+            <div
+              class="bg-green-50 border-l-4 border-nhGreen p-6 rounded-r-lg mb-6"
+            >
+              <h4 class="font-bold text-nhDark mb-2 flex items-center">
+                <i class="fas fa-bullseye text-nhGold mr-2"></i> Visi Kami
+              </h4>
+              <p class="italic text-gray-700">
+                "Terwujudnya generasi Islami yang unggul dalam ilmu pengetahuan
+                dan berakhlakul karimah."
+              </p>
+            </div>
+
+            <h4 class="font-bold text-nhDark mb-3">Misi Kami:</h4>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-nhGreen mt-1 mr-3"></i>
+                <span class="text-gray-600"
+                  >Menanamkan nilai-nilai Islam sejak dini.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-nhGreen mt-1 mr-3"></i>
+                <span class="text-gray-600"
+                  >Meningkatkan kualitas pembelajaran akademik.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-nhGreen mt-1 mr-3"></i>
+                <span class="text-gray-600"
+                  >Membentuk karakter disiplin dan bertanggung jawab.</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- jenjang pendidikan -->
+    <section id="akademik" class="py-20 bg-gray-50 fade-in-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-nhGreen font-bold tracking-wider uppercase text-sm"
+            >Jenjang Pendidikan</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-2"
+          >
+            Program Akademik
+          </h2>
+          <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+            Kurikulum terpadu antara pendidikan umum dan pendidikan agama untuk
+            membentuk keseimbangan ilmu dan iman.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div
+            class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:-translate-y-2 border-t-4 border-nhGreen"
+          >
+            <div class="p-8 text-center">
+              <div
+                class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 text-nhGreen text-3xl"
+              >
+                <i class="fas fa-child"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                MI Nurul Hidayah
+              </h3>
+              <p
+                class="text-sm text-nhGold font-bold uppercase tracking-wide mb-4"
+              >
+                Setingkat SD
+              </p>
+              <p class="text-gray-600 mb-6">
+                Membangun fondasi aqidah, akhlak, dan calistung (baca, tulis,
+                hitung) yang kuat serta hafalan Juz Amma.
+              </p>
+              <a
+                href="#kontak"
+                class="text-nhGreen font-semibold hover:text-nhDark flex items-center justify-center group"
+              >
+                Info Pendaftaran
+                <i
+                  class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"
+                ></i>
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:-translate-y-2 border-t-4 border-nhGold"
+          >
+            <div class="p-8 text-center">
+              <div
+                class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 text-yellow-600 text-3xl"
+              >
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                MTs Nurul Hidayah
+              </h3>
+              <p
+                class="text-sm text-nhGold font-bold uppercase tracking-wide mb-4"
+              >
+                Setingkat SMP
+              </p>
+              <p class="text-gray-600 mb-6">
+                Pengembangan intelektual, kepemimpinan, bahasa Arab & Inggris,
+                serta pendalaman Fiqih dan Tahfidz.
+              </p>
+              <a
+                href="#kontak"
+                class="text-nhGreen font-semibold hover:text-nhDark flex items-center justify-center group"
+              >
+                Info Pendaftaran
+                <i
+                  class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- fasilitas -->
+    <section
+      id="fasilitas"
+      class="py-20 bg-nhDark text-white relative overflow-hidden fade-in-section"
+    >
+      <div
+        class="absolute inset-0 opacity-10"
+        style="
+          background-image: radial-gradient(#fbbf24 1px, transparent 1px);
+          background-size: 20px 20px;
+        "
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-16">
+          <div>
+            <h3 class="text-3xl font-heading font-bold mb-8 text-nhGold">
+              Fasilitas Sekolah
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div
+                class="flex items-center space-x-4 bg-white/10 p-4 rounded-lg backdrop-blur-sm"
+              >
+                <i class="fas fa-book text-2xl text-nhGold"></i>
+                <span class="font-medium">Perpustakaan</span>
+              </div>
+
+              <div
+                class="flex items-center space-x-4 bg-white/10 p-4 rounded-lg backdrop-blur-sm"
+              >
+                <i class="fas fa-building text-2xl text-nhGold"></i>
+                <span class="font-medium">Gedung Aula</span>
+              </div>
+
+              <div
+                class="flex items-center space-x-4 bg-white/10 p-4 rounded-lg backdrop-blur-sm"
+              >
+                <i class="fas fa-futbol text-2xl text-nhGold"></i>
+                <span class="font-medium">Lapangan Olahraga</span>
+              </div>
+
+              <div
+                class="flex items-center space-x-4 bg-white/10 p-4 rounded-lg backdrop-blur-sm"
+              >
+                <i class="fas fa-mosque text-2xl text-nhGold"></i>
+                <span class="font-medium">Sarana Ibadah</span>
+              </div>
+
+              <div
+                class="flex items-center space-x-4 bg-white/10 p-4 rounded-lg backdrop-blur-sm"
+              >
+                <i class="fas fa-utensils text-2xl text-nhGold"></i>
+                <span class="font-medium">Kantin</span>
+              </div>
+
+              <div
+                class="flex items-center space-x-4 bg-white/10 p-4 rounded-lg backdrop-blur-sm"
+              >
+                <i class="fas fa-laptop text-2xl text-nhGold"></i>
+                <span class="font-medium">Ruang Komputer</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-3xl font-heading font-bold mb-8 text-nhGold">
+              Mengapa Memilih Kami?
+            </h3>
+            <div class="space-y-6">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <div
+                    class="flex items-center justify-center h-10 w-10 rounded-full bg-nhGreen border border-nhGold text-white"
+                  >
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-bold text-white">
+                    Pendidikan Berbasis Nilai Islam
+                  </h4>
+                  <p class="mt-1 text-gray-300 text-sm">
+                    Integrasi nilai agama dalam setiap mata pelajaran.
+                  </p>
+                </div>
+              </div>
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <div
+                    class="flex items-center justify-center h-10 w-10 rounded-full bg-nhGreen border border-nhGold text-white"
+                  >
+                    <i class="fas fa-chalkboard-user"></i>
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-bold text-white">
+                    Guru Berpengalaman
+                  </h4>
+                  <p class="mt-1 text-gray-300 text-sm">
+                    Pendidik yang berdedikasi, sabar, dan profesional.
+                  </p>
+                </div>
+              </div>
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <div
+                    class="flex items-center justify-center h-10 w-10 rounded-full bg-nhGreen border border-nhGold text-white"
+                  >
+                    <i class="fas fa-hand-holding-dollar"></i>
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-bold text-white">Biaya Terjangkau</h4>
+                  <p class="mt-1 text-gray-300 text-sm">
+                    Pendidikan berkualitas tidak harus mahal.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- extra -->
+    <section id="ekskul" class="py-20 bg-gray-50 fade-in-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-nhGreen font-bold tracking-wider uppercase text-sm"
+            >Pengembangan Diri</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-2"
+          >
+            Ekstrakurikuler
+          </h2>
+          <div class="w-20 h-1 bg-nhGold mx-auto mt-4 rounded-full"></div>
+          <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+            Wadah bagi siswa-siswi MTs Nurul Hidayah untuk menggali potensi,
+            mengasah bakat, dan membentuk karakter yang unggul.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div
+            class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 text-center border-b-4 border-nhGreen group"
+          >
+            <div
+              class="w-16 h-16 bg-nhGreen/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-nhGreen transition-colors"
+            >
+              <i
+                class="fas fa-pray text-2xl text-nhGreen group-hover:text-white"
+              ></i>
+            </div>
+            <h4 class="font-bold text-nhDark text-sm">Praktik Ibadah</h4>
+          </div>
+
+          <div
+            class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 text-center border-b-4 border-nhGold group"
+          >
+            <div
+              class="w-16 h-16 bg-nhGold/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-nhGold transition-colors"
+            >
+              <i
+                class="fas fa-microphone-alt text-2xl text-nhGold group-hover:text-white"
+              ></i>
+            </div>
+            <h4 class="font-bold text-nhDark text-sm">Muhadarah</h4>
+          </div>
+
+          <div
+            class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 text-center border-b-4 border-nhGreen group"
+          >
+            <div
+              class="w-16 h-16 bg-nhGreen/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-nhGreen transition-colors"
+            >
+              <i
+                class="fas fa-quran text-2xl text-nhGreen group-hover:text-white"
+              ></i>
+            </div>
+            <h4 class="font-bold text-nhDark text-sm">Tartil Qur'an</h4>
+          </div>
+
+          <div
+            class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 text-center border-b-4 border-nhGold group"
+          >
+            <div
+              class="w-16 h-16 bg-nhGold/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-nhGold transition-colors"
+            >
+              <i
+                class="fas fa-campground text-2xl text-nhGold group-hover:text-white"
+              ></i>
+            </div>
+            <h4 class="font-bold text-nhDark text-sm">Pramuka</h4>
+          </div>
+
+          <div
+            class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 text-center border-b-4 border-nhGreen group"
+          >
+            <div
+              class="w-16 h-16 bg-nhGreen/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-nhGreen transition-colors"
+            >
+              <i
+                class="fas fa-volleyball-ball text-2xl text-nhGreen group-hover:text-white"
+              ></i>
+            </div>
+            <h4 class="font-bold text-nhDark text-sm">Olahraga</h4>
+          </div>
+
+          <div
+            class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 text-center border-b-4 border-nhGold group"
+          >
+            <div
+              class="w-16 h-16 bg-nhGold/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-nhGold transition-colors"
+            >
+              <i
+                class="fas fa-laptop-code text-2xl text-nhGold group-hover:text-white"
+              ></i>
+            </div>
+            <h4 class="font-bold text-nhDark text-sm">Dasar Komputer</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kepala sekolah -->
+    <section id="kepala-sekolah" class="py-20 bg-gray-50 fade-in-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-nhGreen font-bold tracking-wider uppercase text-sm"
+            >Struktural</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-2"
+          >
+            Pimpinan Madrasah
+          </h2>
+          <div class="w-20 h-1 bg-nhGold mx-auto mt-4 rounded-full"></div>
+          <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+            Mengenal sosok pemimpin yang berdedikasi dalam membimbing dan
+            memajukan pendidikan di Nurul Hidayah.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+          <div
+            class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition group relative z-10"
+          >
+            <div
+              class="bg-nhGreen h-32 relative overflow-hidden flex justify-center items-end"
+            >
+              <div
+                class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/arabesque.png')]"
+              ></div>
+            </div>
+            <div class="flex justify-center -mt-20 relative z-20">
+              <img
+                class="w-40 h-40 rounded-full object-cover border-4 border-white shadow-lg group-hover:scale-105 transition duration-300"
+                src="img/rubiah.png"
+                alt="Foto Kepala MI"
+              />
+              <div
+                class="absolute bottom-0 right-1/3 transform translate-x-4 bg-nhGold w-10 h-10 rounded-full flex items-center justify-center text-nhDark border-2 border-white"
+              >
+                <i class="fas fa-chalkboard-teacher"></i>
+              </div>
+            </div>
+
+            <div class="p-8 pt-4 text-center">
+              <h3 class="text-2xl font-bold text-nhDark mb-1">
+                Rubiyah,S.Pd.SD
+              </h3>
+              <p class="text-nhGreen font-semibold tracking-wide mb-4">
+                Kepala MI Nurul Hidayah
+              </p>
+
+              <div class="bg-green-50 rounded-xl p-4 mb-4">
+                <p class="text-gray-600 italic text-sm leading-relaxed">
+                  "Berkomitmen membangun fondasi karakter Islami yang kuat sejak
+                  dini, agar lahir generasi yang cerdas akalnya dan bersih
+                  hatinya."
+                </p>
+              </div>
+
+              <div
+                class="text-sm text-gray-500 flex flex-wrap justify-center gap-3"
+              >
+                <span class="flex items-center"
+                  ><i class="fas fa-graduation-cap text-nhGold mr-2"></i>
+                  Sarjana Pendidikan Sekolah Dasar</span
+                >
+                <!-- <span class="flex items-center"
+                  ><i class="fas fa-briefcase text-nhGold mr-2"></i> Mengabdi
+                  sejak 2010</span
+                > -->
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition group relative z-10 mt-12 md:mt-0"
+          >
+            <div
+              class="bg-nhDark h-32 relative overflow-hidden flex justify-center items-end"
+            >
+              <div
+                class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/arabesque.png')]"
+              ></div>
+            </div>
+            <div class="flex justify-center -mt-20 relative z-20">
+              <img
+                class="w-40 h-40 rounded-full object-cover border-4 border-white shadow-lg group-hover:scale-105 transition duration-300"
+                src="img/imron.png"
+                alt="Foto Kepala MTs"
+              />
+              <div
+                class="absolute bottom-0 right-1/3 transform translate-x-4 bg-nhGold w-10 h-10 rounded-full flex items-center justify-center text-nhDark border-2 border-white"
+              >
+                <i class="fas fa-user-graduate"></i>
+              </div>
+            </div>
+
+            <div class="p-8 pt-4 text-center">
+              <h3 class="text-2xl font-bold text-nhDark mb-1">
+                Imran Suhaidy, S.Pd.
+              </h3>
+              <p class="text-nhGreen font-semibold tracking-wide mb-4">
+                Kepala MTs Nurul Hidayah
+              </p>
+
+              <div class="bg-green-50 rounded-xl p-4 mb-4">
+                <p class="text-gray-600 italic text-sm leading-relaxed">
+                  "Fokus kami adalah menyeimbangkan prestasi akademik dan akhlak
+                  mulia, mempersiapkan siswa menjadi pemimpin masa depan yang
+                  amanah."
+                </p>
+              </div>
+
+              <div
+                class="text-sm text-gray-500 flex flex-wrap justify-center gap-3"
+              >
+                <span class="flex items-center"
+                  ><i class="fas fa-graduation-cap text-nhGold mr-2"></i>
+                  Sarjana Pendidikan</span
+                >
+                <!-- <span class="flex items-center"
+                  ><i class="fas fa-briefcase text-nhGold mr-2"></i> Mengabdi
+                  sejak 2012</span
+                > -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- galeri -->
+
+    <section id="galeri" class="py-20 bg-white fade-in-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span class="text-nhGreen font-bold tracking-wider uppercase text-sm"
+            >Dokumentasi</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-2"
+          >
+            Galeri Kegiatan
+          </h2>
+          <div class="w-16 h-1 bg-nhGold mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="relative group">
+          <button
+            onclick="document.getElementById('slider').scrollBy({left: -400, behavior: 'smooth'})"
+            class="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 p-3 rounded-full shadow-xl hidden md:flex items-center justify-center hover:bg-nhGreen hover:text-white transition ml-[-20px] border border-gray-100"
+          >
+            <i class="fas fa-chevron-left"></i>
+          </button>
+
+          <div
+            id="slider"
+            class="flex overflow-x-auto gap-6 scroll-smooth snap-x snap-mandatory no-scrollbar pb-10 px-2"
+          >
+            <div class="snap-center shrink-0 w-[300px] md:w-[450px]">
+              <div
+                class="relative aspect-video overflow-hidden rounded-2xl cursor-pointer shadow-lg border border-gray-100"
+                onclick="openGalleryModal(this)"
+              >
+                <img
+                  src="img/pembagian raport.jpg"
+                  alt="Kegiatan Belajar"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-nhDark/90 via-nhDark/20 to-transparent flex flex-col justify-end p-6"
+                >
+                  <span
+                    class="bg-nhGold text-nhDark text-[10px] font-bold px-2 py-1 rounded mb-2 w-fit uppercase tracking-tighter"
+                    >Akademik</span
+                  >
+                  <h4
+                    class="text-white font-bold text-lg leading-snug drop-shadow-md"
+                  >
+                    Pembagian rapor semester 1 tahun pelajaran 2025/2026.
+                  </h4>
+                  <p class="text-gray-300 text-[10px] mt-2 flex items-center">
+                    <i class="fas fa-search-plus mr-2"></i> Klik untuk perbesar
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="snap-center shrink-0 w-[300px] md:w-[450px]">
+              <div
+                class="relative aspect-video overflow-hidden rounded-2xl cursor-pointer shadow-lg border border-gray-100"
+                onclick="openGalleryModal(this)"
+              >
+                <img
+                  src="img/kinerja guru.jpg"
+                  alt="Upacara"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-nhDark/90 via-nhDark/20 to-transparent flex flex-col justify-end p-6"
+                >
+                  <span
+                    class="bg-nhGold text-nhDark text-[10px] font-bold px-2 py-1 rounded mb-2 w-fit uppercase tracking-tighter"
+                    >Guru</span
+                  >
+                  <h4
+                    class="text-white font-bold text-lg leading-snug drop-shadow-md"
+                  >
+                    penilaian kinerja kepala madrasah (PKKM) KKM MIS SABILIL
+                    HUDA Sanglar
+                  </h4>
+                  <p class="text-gray-300 text-[10px] mt-2 flex items-center">
+                    <i class="fas fa-search-plus mr-2"></i> Klik untuk perbesar
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="snap-center shrink-0 w-[300px] md:w-[450px]">
+              <div
+                class="relative aspect-video overflow-hidden rounded-2xl cursor-pointer shadow-lg border border-gray-100"
+                onclick="openGalleryModal(this)"
+              >
+                <img
+                  src="img/ujian.jpg"
+                  alt="Perpustakaan"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-nhDark/90 via-nhDark/20 to-transparent flex flex-col justify-end p-6"
+                >
+                  <span
+                    class="bg-nhGold text-nhDark text-[10px] font-bold px-2 py-1 rounded mb-2 w-fit uppercase tracking-tighter"
+                    >Kegiatan</span
+                  >
+                  <h4
+                    class="text-white font-bold text-lg leading-snug drop-shadow-md"
+                  >
+                    Ujian Akhir semester Genap
+                  </h4>
+                  <p class="text-gray-300 text-[10px] mt-2 flex items-center">
+                    <i class="fas fa-search-plus mr-2"></i> Klik untuk perbesar
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="snap-center shrink-0 w-[300px] md:w-[450px]">
+              <div
+                class="relative aspect-video overflow-hidden rounded-2xl cursor-pointer shadow-lg border border-gray-100"
+                onclick="openGalleryModal(this)"
+              >
+                <img
+                  src="img/sumatif.jpg"
+                  alt="Ekstrakurikuler"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-nhDark/90 via-nhDark/20 to-transparent flex flex-col justify-end p-6"
+                >
+                  <span
+                    class="bg-nhGold text-nhDark text-[10px] font-bold px-2 py-1 rounded mb-2 w-fit uppercase tracking-tighter"
+                    >Kegiatan</span
+                  >
+                  <h4
+                    class="text-white font-bold text-lg leading-snug drop-shadow-md"
+                  >
+                    pelaksanaan sumatif akhir semester ganjil tp 2025/2026
+                  </h4>
+                  <p class="text-gray-300 text-[10px] mt-2 flex items-center">
+                    <i class="fas fa-search-plus mr-2"></i> Klik untuk perbesar
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="snap-center shrink-0 w-[300px] md:w-[450px]">
+              <div
+                class="relative aspect-video overflow-hidden rounded-2xl cursor-pointer shadow-lg border border-gray-100"
+                onclick="openGalleryModal(this)"
+              >
+                <img
+                  src="img/pramuka.jpg"
+                  alt="Perpustakaan"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-nhDark/90 via-nhDark/20 to-transparent flex flex-col justify-end p-6"
+                >
+                  <span
+                    class="bg-nhGold text-nhDark text-[10px] font-bold px-2 py-1 rounded mb-2 w-fit uppercase tracking-tighter"
+                    >Kegiatan</span
+                  >
+                  <h4
+                    class="text-white font-bold text-lg leading-snug drop-shadow-md"
+                  >
+                    kegiatan pramuka SIAGA MI nurul Hidayah
+                  </h4>
+                  <p class="text-gray-300 text-[10px] mt-2 flex items-center">
+                    <i class="fas fa-search-plus mr-2"></i> Klik untuk perbesar
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="snap-center shrink-0 w-[300px] md:w-[450px]">
+              <div
+                class="relative aspect-video overflow-hidden rounded-2xl cursor-pointer shadow-lg border border-gray-100"
+                onclick="openGalleryModal(this)"
+              >
+                <img
+                  src="img/lomba tenis.jpg"
+                  alt="Perpustakaan"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-nhDark/90 via-nhDark/20 to-transparent flex flex-col justify-end p-6"
+                >
+                  <span
+                    class="bg-nhGold text-nhDark text-[10px] font-bold px-2 py-1 rounded mb-2 w-fit uppercase tracking-tighter"
+                    >Kegiatan</span
+                  >
+                  <h4
+                    class="text-white font-bold text-lg leading-snug drop-shadow-md"
+                  >
+                    lomba tenis meja dalam rangka memperingati hari guru
+                    Nasional.. yang diselenggarakan oleh PGRI kecamatan Reteh
+                  </h4>
+                  <p class="text-gray-300 text-[10px] mt-2 flex items-center">
+                    <i class="fas fa-search-plus mr-2"></i> Klik untuk perbesar
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="snap-center shrink-0 w-[300px] md:w-[450px]">
+              <div
+                class="relative aspect-video overflow-hidden rounded-2xl cursor-pointer shadow-lg border border-gray-100"
+                onclick="openGalleryModal(this)"
+              >
+                <img
+                  src="img/senam.jpg"
+                  alt="Perpustakaan"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-nhDark/90 via-nhDark/20 to-transparent flex flex-col justify-end p-6"
+                >
+                  <span
+                    class="bg-nhGold text-nhDark text-[10px] font-bold px-2 py-1 rounded mb-2 w-fit uppercase tracking-tighter"
+                    >Kegiatan</span
+                  >
+                  <h4
+                    class="text-white font-bold text-lg leading-snug drop-shadow-md"
+                  >
+                    Kegiatan Senam sehat
+                  </h4>
+                  <p class="text-gray-300 text-[10px] mt-2 flex items-center">
+                    <i class="fas fa-search-plus mr-2"></i> Klik untuk perbesar
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="snap-center shrink-0 w-[300px] md:w-[450px]">
+              <div
+                class="relative aspect-video overflow-hidden rounded-2xl cursor-pointer shadow-lg border border-gray-100"
+                onclick="openGalleryModal(this)"
+              >
+                <img
+                  src="img/muadoroh.jpg"
+                  alt="Perpustakaan"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-nhDark/90 via-nhDark/20 to-transparent flex flex-col justify-end p-6"
+                >
+                  <span
+                    class="bg-nhGold text-nhDark text-[10px] font-bold px-2 py-1 rounded mb-2 w-fit uppercase tracking-tighter"
+                    >Kegiatan</span
+                  >
+                  <h4
+                    class="text-white font-bold text-lg leading-snug drop-shadow-md"
+                  >
+                    kegiatan muhadarah siswa siswi yayasan nurul hidayah
+                  </h4>
+                  <p class="text-gray-300 text-[10px] mt-2 flex items-center">
+                    <i class="fas fa-search-plus mr-2"></i> Klik untuk perbesar
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="snap-center shrink-0 w-[300px] md:w-[450px]">
+              <div
+                class="relative aspect-video overflow-hidden rounded-2xl cursor-pointer shadow-lg border border-gray-100"
+                onclick="openGalleryModal(this)"
+              >
+                <img
+                  src="img/yasinan.jpg"
+                  alt="Perpustakaan"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-nhDark/90 via-nhDark/20 to-transparent flex flex-col justify-end p-6"
+                >
+                  <span
+                    class="bg-nhGold text-nhDark text-[10px] font-bold px-2 py-1 rounded mb-2 w-fit uppercase tracking-tighter"
+                    >Kegiatan</span
+                  >
+                  <h4
+                    class="text-white font-bold text-lg leading-snug drop-shadow-md"
+                  >
+                    Membaca surah yasin jum'at pagi
+                  </h4>
+                  <p class="text-gray-300 text-[10px] mt-2 flex items-center">
+                    <i class="fas fa-search-plus mr-2"></i> Klik untuk perbesar
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="snap-center shrink-0 w-[300px] md:w-[450px]">
+              <div
+                class="relative aspect-video overflow-hidden rounded-2xl cursor-pointer shadow-lg border border-gray-100"
+                onclick="openGalleryModal(this)"
+              >
+                <img
+                  src="img/tik.jpg"
+                  alt="Perpustakaan"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-nhDark/90 via-nhDark/20 to-transparent flex flex-col justify-end p-6"
+                >
+                  <span
+                    class="bg-nhGold text-nhDark text-[10px] font-bold px-2 py-1 rounded mb-2 w-fit uppercase tracking-tighter"
+                    >Kegiatan</span
+                  >
+                  <h4
+                    class="text-white font-bold text-lg leading-snug drop-shadow-md"
+                  >
+                    Praktek mengoperasikan komputer
+                  </h4>
+                  <p class="text-gray-300 text-[10px] mt-2 flex items-center">
+                    <i class="fas fa-search-plus mr-2"></i> Klik untuk perbesar
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="snap-center shrink-0 w-[300px] md:w-[450px]">
+              <div
+                class="relative aspect-video overflow-hidden rounded-2xl cursor-pointer shadow-lg border border-gray-100"
+                onclick="openGalleryModal(this)"
+              >
+                <img
+                  src="img/hasn.jpg"
+                  alt="Perpustakaan"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-nhDark/90 via-nhDark/20 to-transparent flex flex-col justify-end p-6"
+                >
+                  <span
+                    class="bg-nhGold text-nhDark text-[10px] font-bold px-2 py-1 rounded mb-2 w-fit uppercase tracking-tighter"
+                    >Kegiatan</span
+                  >
+                  <h4
+                    class="text-white font-bold text-lg leading-snug drop-shadow-md"
+                  >
+                    upacara hari santri di lapangan kantor camat Reteh.
+                  </h4>
+                  <p class="text-gray-300 text-[10px] mt-2 flex items-center">
+                    <i class="fas fa-search-plus mr-2"></i> Klik untuk perbesar
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button
+            onclick="document.getElementById('slider').scrollBy({left: 400, behavior: 'smooth'})"
+            class="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 p-3 rounded-full shadow-xl hidden md:flex items-center justify-center hover:bg-nhGreen hover:text-white transition mr-[-20px] border border-gray-100"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="text-center mt-4 md:hidden">
+          <div
+            class="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full text-[10px] text-gray-500 font-medium"
+          >
+            <i class="fas fa-arrows-left-right mr-2 text-nhGreen"></i> GESER
+            UNTUK LIHAT FOTO LAIN
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- grid -->
+    <section id="galeri-grid" class="py-12 bg-white fade-in-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex items-center justify-between mb-8 border-b border-gray-100 pb-4"
+        >
+          <h2 class="text-2xl font-bold text-gray-900">Galeri Foto</h2>
+          <span
+            class="text-xs text-gray-500 uppercase tracking-widest font-bold"
+            >MI & MTs Nurul Hidayah</span
+          >
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(0)"
+          >
+            <img
+              src="img/pembagian raport.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Rapor"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p
+                class="text-white text-[10px] font-medium leading-tight line-clamp-2"
+              >
+                Pembagian rapor semester 1 tahun 2025/2026
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(1)"
+          >
+            <img
+              src="img/fotbar.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Upacara"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-white text-[10px] font-medium leading-tight">
+                Upacara rutin hari Senin
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(2)"
+          >
+            <img
+              src="img/ft.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Kelas"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-white text-[10px] font-medium leading-tight">
+                Suasana belajar kelompok
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(3)"
+          >
+            <img
+              src="img/gr.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Ekskul"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-white text-[10px] font-medium leading-tight">
+                Kegiatan Pramuka
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(3)"
+          >
+            <img
+              src="img/grt.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Ekskul"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-white text-[10px] font-medium leading-tight">
+                Kegiatan Pramuka
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(3)"
+          >
+            <img
+              src="img/guru.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Ekskul"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-white text-[10px] font-medium leading-tight">
+                Kegiatan Pramuka
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(3)"
+          >
+            <img
+              src="img/hadroh.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Ekskul"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-white text-[10px] font-medium leading-tight">
+                Kegiatan Pramuka
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(3)"
+          >
+            <img
+              src="img/hasn.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Ekskul"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-white text-[10px] font-medium leading-tight">
+                Kegiatan Pramuka
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(3)"
+          >
+            <img
+              src="img/kinerja guru.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Ekskul"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-white text-[10px] font-medium leading-tight">
+                Kegiatan Pramuka
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(3)"
+          >
+            <img
+              src="img/lomba tenis.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Ekskul"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-white text-[10px] font-medium leading-tight">
+                Kegiatan Pramuka
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(3)"
+          >
+            <img
+              src="img/makan.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Ekskul"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-white text-[10px] font-medium leading-tight">
+                Kegiatan Pramuka
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(3)"
+          >
+            <img
+              src="img/mkn.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Ekskul"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-white text-[10px] font-medium leading-tight">
+                Kegiatan Pramuka
+              </p>
+            </div>
+          </div>
+
+          <!--  -->
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(3)"
+          >
+            <img
+              src="img/muadoroh.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Ekskul"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-white text-[10px] font-medium leading-tight">
+                Kegiatan Pramuka
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(3)"
+          >
+            <img
+              src="img/olim.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Ekskul"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-white text-[10px] font-medium leading-tight">
+                Kegiatan Pramuka
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(3)"
+          >
+            <img
+              src="img/olim2.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Ekskul"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-white text-[10px] font-medium leading-tight">
+                Kegiatan Pramuka
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(3)"
+          >
+            <img
+              src="img/olim3.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Ekskul"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-white text-[10px] font-medium leading-tight">
+                Kegiatan Pramuka
+              </p>
+            </div>
+          </div>
+          <!--  -->
+
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(3)"
+          >
+            <img
+              src="img/pramuka.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Ekskul"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-white text-[10px] font-medium leading-tight">
+                Kegiatan Pramuka
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(3)"
+          >
+            <img
+              src="img/senam.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Ekskul"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-white text-[10px] font-medium leading-tight">
+                Kegiatan Pramuka
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(3)"
+          >
+            <img
+              src="img/tik.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Ekskul"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-white text-[10px] font-medium leading-tight">
+                Kegiatan Pramuka
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer bg-gray-200"
+            onclick="openLightbox(3)"
+          >
+            <img
+              src="img/yasinan.jpg"
+              class="w-full h-full object-cover transition duration-300 group-hover:brightness-50"
+              alt="Ekskul"
+            />
+            <div
+              class="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p class="text-white text-[10px] font-medium leading-tight">
+                Kegiatan Pramuka
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div
+      id="galleryModal"
+      class="fixed inset-0 z-[100] hidden bg-nhDark/95 backdrop-blur-md flex items-center justify-center p-4 overflow-hidden"
+    >
+      <button
+        onclick="closeGalleryModal()"
+        class="absolute top-6 right-6 text-white text-3xl hover:text-nhGold z-[110] transition"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="max-w-5xl w-full flex flex-col items-center">
+        <img
+          id="modalFullImg"
+          src=""
+          class="max-w-full max-h-[75vh] rounded-lg shadow-2xl object-contain animate-zoom-in"
+        />
+        <div class="mt-6 text-center text-white max-w-2xl">
+          <h4 id="modalTitle" class="text-xl font-bold text-nhGold mb-2"></h4>
+          <p id="modalDesc" class="text-gray-300"></p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="imageModal"
+      class="fixed inset-0 z-[60] hidden bg-black/90 flex items-center justify-center p-4"
+    >
+      <button
+        onclick="closeModal()"
+        class="absolute top-5 right-5 text-white text-4xl hover:text-nhGold"
+      >
+        &times;
+      </button>
+      <img
+        id="modalImg"
+        src=""
+        class="max-w-full max-h-[90vh] rounded-lg shadow-2xl animate-fade-in-up"
+      />
+    </div>
+
+    <section
+      id="ppdb"
+      class="py-24 bg-gray-50 relative overflow-hidden fade-in-section"
+    >
+      <div
+        class="absolute top-0 right-0 w-64 h-64 bg-nhGreen/5 rounded-full -mr-32 -mt-32"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 w-64 h-64 bg-nhGold/5 rounded-full -ml-32 -mb-32"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+          <span class="text-nhGreen font-bold tracking-wider uppercase text-sm"
+            >Penerimaan Peserta Didik Baru</span
+          >
+          <h2
+            class="text-3xl md:text-5xl font-heading font-bold text-gray-900 mt-2"
+          >
+            PPDB Tahun Ajaran 2025/2026
+          </h2>
+          <div class="w-24 h-1.5 bg-nhGold mx-auto mt-4 rounded-full"></div>
+          <p class="mt-6 text-gray-600 max-w-2xl mx-auto text-lg italic">
+            "Mari bergabung bersama MI & MTs Nurul Hidayah dan jadilah bagian
+            dari generasi Islami yang cerdas dan berprestasi."
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 items-stretch">
+          <div
+            class="bg-white p-8 md:p-10 rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100"
+          >
+            <div class="flex items-center gap-4 mb-8">
+              <div
+                class="w-12 h-12 bg-nhGreen rounded-2xl flex items-center justify-center text-white shadow-lg shadow-nhGreen/20"
+              >
+                <i class="fas fa-clipboard-check text-xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900">
+                Syarat Pendaftaran
+              </h3>
+            </div>
+
+            <ul class="space-y-4 text-gray-700">
+              <li
+                class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:bg-white hover:shadow-sm transition"
+              >
+                <span
+                  class="w-6 h-6 bg-nhGreen/10 text-nhGreen rounded-full flex items-center justify-center text-xs font-bold"
+                  >1</span
+                >
+                Mengisi Formulir Pendaftaran
+              </li>
+              <li
+                class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:bg-white hover:shadow-sm transition"
+              >
+                <span
+                  class="w-6 h-6 bg-nhGreen/10 text-nhGreen rounded-full flex items-center justify-center text-xs font-bold"
+                  >2</span
+                >
+                Fotocopy Akta Kelahiran & KK
+              </li>
+              <li
+                class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:bg-white hover:shadow-sm transition"
+              >
+                <span
+                  class="w-6 h-6 bg-nhGreen/10 text-nhGreen rounded-full flex items-center justify-center text-xs font-bold"
+                  >3</span
+                >
+                Fotocopy Ijazah Terakhir / SKL
+              </li>
+              <li
+                class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:bg-white hover:shadow-sm transition"
+              >
+                <span
+                  class="w-6 h-6 bg-nhGreen/10 text-nhGreen rounded-full flex items-center justify-center text-xs font-bold"
+                  >4</span
+                >
+                Fotocopy Rapot
+              </li>
+              <li
+                class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:bg-white hover:shadow-sm transition"
+              >
+                <span
+                  class="w-6 h-6 bg-nhGreen/10 text-nhGreen rounded-full flex items-center justify-center text-xs font-bold"
+                  >5</span
+                >
+                Pass Foto 3x4 (3 lembar)
+              </li>
+            </ul>
+
+            <div
+              class="mt-8 p-4 bg-green-50 rounded-2xl border border-green-100 flex items-center gap-3"
+            >
+              <i class="fas fa-info-circle text-nhGreen text-xl"></i>
+              <p class="text-sm text-nhGreen font-bold italic">
+                Bebas biaya pendaftaran (GRATIS)!
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-6">
+            <div
+              class="bg-nhDark text-white p-8 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden flex-grow"
+            >
+              <div
+                class="absolute top-0 right-0 p-6 opacity-10 text-8xl -mr-8 -mt-8 rotate-12"
+              >
+                <i class="fas fa-gift"></i>
+              </div>
+
+              <h3
+                class="text-2xl font-bold mb-6 text-nhGold flex items-center gap-3"
+              >
+                <i class="fas fa-stars"></i> Fasilitas Gratis
+              </h3>
+
+              <div class="grid grid-cols-1 sm:grid-cols-1 gap-4">
+                <div
+                  class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 hover:bg-white/10 transition"
+                >
+                  <i class="fas fa-tshirt text-nhGold text-2xl w-8"></i>
+                  <p class="font-bold text-sm">1 Stel Baju Olahraga</p>
+                </div>
+                <div
+                  class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 hover:bg-white/10 transition"
+                >
+                  <i class="fas fa-vest text-nhGold text-2xl w-8"></i>
+                  <p class="font-bold text-sm">Baju Batik</p>
+                </div>
+                <div
+                  class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 hover:bg-white/10 transition"
+                >
+                  <i class="fas fa-book text-nhGold text-2xl w-8"></i>
+                  <p class="font-bold text-sm">Buku Tulis 1 Pak</p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl"
+            >
+              <div class="flex items-center gap-4 mb-6">
+                <div
+                  class="w-12 h-12 bg-nhGold/10 rounded-full flex items-center justify-center text-nhGold"
+                >
+                  <i class="fas fa-user-tie text-xl"></i>
+                </div>
+                <div>
+                  <p
+                    class="text-[10px] text-gray-500 uppercase tracking-widest font-bold"
+                  >
+                    Admin: Bapak Imron Suhaidi, S.Pd SD
+                  </p>
+                  <p class="font-bold text-nhDark">Pilih Metode Pendaftaran:</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <a
+                  href="form.html"
+                  class="bg-nhGreen hover:bg-nhDark text-white font-bold py-4 px-6 rounded-2xl transition transform hover:-translate-y-1 shadow-lg shadow-nhGreen/20 flex items-center justify-center gap-2"
+                >
+                  <i class="fas fa-edit"></i>
+                  Daftar Sekarang
+                </a>
+
+                <a
+                  href="https://wa.me/6282381844193"
+                  target="_blank"
+                  class="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-4 px-6 rounded-2xl transition transform hover:-translate-y-1 shadow-lg shadow-green-200 flex items-center justify-center gap-2"
+                >
+                  <i class="fab fa-whatsapp text-xl"></i>
+                  Tanya Admin
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontak" class="py-20 bg-gray-50 fade-in-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span class="text-nhGreen font-bold tracking-wider uppercase text-sm"
+            >Hubungi Kami</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-2"
+          >
+            Informasi & Bantuan
+          </h2>
+          <div class="w-16 h-1 bg-nhGold mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+          <div class="space-y-6">
+            <div
+              class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start space-x-5 hover:shadow-md transition"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-nhGreen"
+              >
+                <i class="fas fa-map-marker-alt text-xl"></i>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-gray-900">Alamat Sekolah</h4>
+                <p class="text-gray-600 mt-1 leading-relaxed">
+                  Jl. Sunan Gunung Jati, Parit Lapis Daud, Pulau Kijang, Kec.
+                  Reteh, Kab. Indragiri Hilir, Riau.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start space-x-5 hover:shadow-md transition"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-nhGreen"
+              >
+                <i class="fas fa-envelope text-xl"></i>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-gray-900">Email Resmi</h4>
+                <p class="text-gray-600 mt-1">
+                  mi.nurulhidayah.lapisdaud.01@gmail.com
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start space-x-5 hover:shadow-md transition"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-nhGreen"
+              >
+                <i class="fas fa-phone-alt text-xl"></i>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-gray-900">
+                  Telepon / WhatsApp
+                </h4>
+                <p class="text-gray-600 mt-1">+62 812-7700-1684</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white p-8 rounded-3xl shadow-xl border border-gray-50 relative overflow-hidden"
+          >
+            <div
+              class="absolute top-0 right-0 w-24 h-24 bg-nhGreen opacity-5 rounded-bl-full"
+            ></div>
+
+            <h3 class="text-2xl font-bold text-nhDark mb-6 flex items-center">
+              <i class="fas fa-paper-plane mr-3 text-nhGold"></i> Kirim Pesan
+            </h3>
+
+            <form
+              id="contactForm"
+              onsubmit="kirimPesan(event)"
+              class="space-y-5"
+            >
+              <div>
+                <label
+                  for="name"
+                  class="block text-sm font-semibold text-gray-700 mb-2"
+                  >Nama Lengkap</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-nhGreen focus:border-transparent outline-none transition bg-gray-50"
+                  placeholder="Masukkan nama Anda"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  for="email"
+                  class="block text-sm font-semibold text-gray-700 mb-2"
+                  >Alamat Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-nhGreen focus:border-transparent outline-none transition bg-gray-50"
+                  placeholder="contoh@email.com"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  for="message"
+                  class="block text-sm font-semibold text-gray-700 mb-2"
+                  >Isi Pesan</label
+                >
+                <textarea
+                  id="message"
+                  rows="4"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-nhGreen focus:border-transparent outline-none transition bg-gray-50"
+                  placeholder="Apa yang bisa kami bantu?"
+                  required
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full bg-nhGreen hover:bg-nhDark text-white font-bold py-4 rounded-xl transition shadow-lg hover:shadow-nhGreen/30 transform hover:-translate-y-1"
+              >
+                Kirim Sekarang
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="mt-16 group">
+          <div class="flex items-center mb-4 space-x-2">
+            <i class="fas fa-map text-nhGreen"></i>
+            <h4 class="font-bold text-gray-900">Lokasi Madrasah</h4>
+          </div>
+          <div
+            class="rounded-3xl overflow-hidden shadow-2xl h-80 md:h-[450px] w-full border-4 border-white"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7108.481647820462!2d103.20179716381065!3d-0.7232049735617356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e288d746ce4d983%3A0x18a480eb47b3ac74!2sMI%20%26%20MTS%20NURUL%20HIDAYAH!5e0!3m2!1sen!2sid!4v1767756513135!5m2!1sen!2sid"
+              class="w-full h-full border-0 grayscale-[20%] contrast-[110%] group-hover:grayscale-0 transition duration-700"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-nhDark text-white pt-16 pb-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="grid md:grid-cols-3 gap-12 mb-12 border-b border-green-800 pb-8"
+        >
+          <div>
+            <div class="flex items-center space-x-3 mb-4">
+              <div
+                class="w-10 h-10 rounded-full flex items-center justify-center text-nhDark font-bold text-xl"
+              >
+                <img
+                  src="img/Kementerian_Agama_new_logo.png"
+                  alt=""
+                  srcset=""
+                />
+              </div>
+              <h2 class="text-2xl font-heading font-bold">Nurul Hidayah</h2>
+            </div>
+            <p class="text-green-200 text-sm leading-relaxed mb-6">
+              Mendidik dengan Hati, Membimbing dengan Ilmu. Membentuk generasi
+              Rabbani di Indragiri Hilir.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="https://www.facebook.com/profile.php?id=61576121287146"
+                class="w-8 h-8 rounded-full bg-green-800 flex items-center justify-center hover:bg-nhGold hover:text-nhDark transition"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-green-800 flex items-center justify-center hover:bg-nhGold hover:text-nhDark transition"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-green-800 flex items-center justify-center hover:bg-nhGold hover:text-nhDark transition"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-4 text-nhGold">Tautan Cepat</h3>
+            <ul class="space-y-2 text-green-200">
+              <li>
+                <a href="#profil" class="hover:text-white transition"
+                  >Profil Sekolah</a
+                >
+              </li>
+              <li>
+                <a href="#akademik" class="hover:text-white transition"
+                  >Akademik</a
+                >
+              </li>
+              <li>
+                <a href="#ppdb" class="hover:text-white transition"
+                  >Info PPDB</a
+                >
+              </li>
+              <li>
+                <a href="#galeri" class="hover:text-white transition"
+                  >Galeri Foto</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-4 text-nhGold">Lokasi</h3>
+            <p class="text-green-200 text-sm leading-relaxed">
+              Jl. Sunan Gunung Jati, Parit Lapis Daud,<br />
+              Pulau Kijang, Kec. Reteh,<br />
+              Kab. Indragiri Hilir, Riau.
+            </p>
+          </div>
+        </div>
+
+        <div class="text-center text-green-400 text-sm">
+          &copy;
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          MI & MTs Nurul Hidayah. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // 1. Mobile Menu Toggle
+      const btn = document.getElementById("mobile-menu-btn");
+      const menu = document.getElementById("mobile-menu");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll("#mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menu.classList.add("hidden");
+        });
+      });
+
+      // 2. Navbar Scroll Effect
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add("glass-nav", "py-2");
+          navbar.classList.remove("py-4");
+        } else {
+          navbar.classList.remove("glass-nav", "py-2");
+          navbar.classList.add("py-4");
+        }
+      });
+
+      // 3. Fade In Animation on Scroll & Counter Animation
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+
+            // Trigger Counter if it's inside the visible section
+            if (entry.target.querySelector(".counter")) {
+              startCounters();
+            }
+
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".fade-in-section").forEach((section) => {
+        observer.observe(section);
+      });
+
+      // 4. Counter Animation Logic
+      let counted = false;
+      function startCounters() {
+        if (counted) return;
+        const counters = document.querySelectorAll(".counter");
+        counters.forEach((counter) => {
+          const target = +counter.getAttribute("data-target");
+          const speed = 200; // The lower the slower
+
+          const updateCount = () => {
+            const count = +counter.innerText;
+            const inc = target / speed;
+
+            if (count < target) {
+              counter.innerText = Math.ceil(count + inc);
+              setTimeout(updateCount, 20);
+            } else {
+              counter.innerText = target;
+            }
+          };
+          updateCount();
+        });
+        counted = true;
+      }
+
+      // Trigger counter check separately for the specific counter section
+      const counterSection = document
+        .querySelector(".counter")
+        .closest("div").parentElement;
+      // Simple visibility check for counter section specifically
+      const counterObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) startCounters();
+      });
+      counterObserver.observe(counterSection);
+
+      // 5. Gallery Modal Logic
+      function openGalleryModal(element) {
+        const modal = document.getElementById("galleryModal");
+        const modalImg = document.getElementById("modalFullImg");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDesc = document.getElementById("modalDesc");
+
+        // Ambil data dari elemen yang diklik
+        const clickedImg = element.querySelector("img").src;
+        const clickedTitle = element.querySelector("span").innerText;
+        const clickedDesc = element.querySelector("h4").innerText;
+
+        // Masukkan ke dalam modal
+        modalImg.src = clickedImg;
+        modalTitle.innerText = clickedTitle;
+        modalDesc.innerText = clickedDesc;
+
+        // Tampilkan modal
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden"; // Kunci scroll layar utama
+      }
+
+      function closeGalleryModal() {
+        const modal = document.getElementById("galleryModal");
+        modal.classList.add("hidden");
+        document.body.style.overflow = "auto"; // Aktifkan kembali scroll
+      }
+
+      // Close modal when clicking outside
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // 6. Form Alert
+      function kirimPesan(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector("button");
+        const originalText = btn.innerText;
+
+        btn.innerText = "Mengirim...";
+        btn.classList.add("opacity-75");
+
+        setTimeout(() => {
+          alert("Terima kasih! Pesan Anda telah kami terima.");
+          e.target.reset();
+          btn.innerText = originalText;
+          btn.classList.remove("opacity-75");
+        }, 1500);
+      }
+
+      //   ppdb
+      function kirimPendaftaranWA(event) {
+        event.preventDefault();
+
+        // Data dari Form
+        const nama = document.getElementById("nama-siswa").value;
+        const asal = document.getElementById("asal-sekolah").value;
+        const wa = document.getElementById("wa-orto").value;
+
+        // Nomor Admin (Sesuai Gambar: 082381844193)
+        const noAdmin = "6282381844193";
+
+        // Template Pesan
+        const teks =
+          `*PENDAFTARAN SISWA BARU (PPDB)*%0A` +
+          `*MTs NURUL HIDAYAH 2025/2026*%0A` +
+          `-------------------------------------------%0A` +
+          `*Nama Siswa:* ${nama}%0A` +
+          `*Asal Sekolah:* ${asal}%0A` +
+          `*WhatsApp Ortu:* ${wa}%0A` +
+          `-------------------------------------------%0A` +
+          `Saya bermaksud mendaftarkan anak saya. Mohon informasi untuk langkah selanjutnya. Terima kasih.`;
+
+        // Redirect ke WA
+        const urlWA = `https://wa.me/${noAdmin}?text=${teks}`;
+        window.open(urlWA, "_blank");
+      }
+    </script>
+  </body>
+</html>

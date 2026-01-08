@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPDB Madrasah - MI & MTs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .step { display: none; }
+        .step.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .modal-animate { animation: fadeIn 0.3s ease-out; }
+    </style>
+</head>
+<body class="bg-slate-100 min-h-screen font-sans">
+
+    <div id="customModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-sm w-full p-6 shadow-2xl modal-animate text-center">
+            <div id="modalIcon" class="text-red-500 text-5xl mb-4 text-center">
+                <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <h3 id="modalTitle" class="text-xl font-bold mb-2 text-gray-800">Peringatan!</h3>
+            <p id="modalMessage" class="text-gray-600 mb-6">Mohon lengkapi data yang wajib diisi.</p>
+            <button onclick="closeModal()" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 w-full font-bold">Tutup</button>
+        </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto my-10 bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-200">
+        <div class="bg-green-700 p-8 text-white text-center relative">
+            <i class="fas fa-school text-5xl mb-3 opacity-30 absolute top-4 right-4"></i>
+            <h1 class="text-3xl font-extrabold tracking-tight">FORMULIR PPDB ONLINE</h1>
+            <p class="text-green-100 mt-2 italic">Silakan pilih jenjang pendidikan terlebih dahulu</p>
+        </div>
+
+        <div class="p-6 bg-green-50 flex justify-center gap-4 border-b">
+            <label class="cursor-pointer group relative">
+                <input type="radio" name="jenjang" value="MI" checked class="hidden peer" onclick="toggleJenjang()">
+                <div class="px-8 py-3 bg-white border-2 border-gray-200 rounded-xl peer-checked:border-green-600 peer-checked:bg-green-600 peer-checked:text-white transition-all shadow-sm">
+                    <i class="fas fa-child-reaching mr-2"></i> Jenjang MI
+                </div>
+            </label>
+            <label class="cursor-pointer group relative">
+                <input type="radio" name="jenjang" value="MTS" class="hidden peer" onclick="toggleJenjang()">
+                <div class="px-8 py-3 bg-white border-2 border-gray-200 rounded-xl peer-checked:border-green-600 peer-checked:bg-green-600 peer-checked:text-white transition-all shadow-sm">
+                    <i class="fas fa-user-graduate mr-2"></i> Jenjang MTs
+                </div>
+            </label>
+        </div>
+
+        <form id="ppdbForm" class="p-8">
+            <div class="step active" id="step1">
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-green-800">
+                    <i class="fas fa-user-circle"></i> Data Calon Siswa
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Nama Lengkap <span class="text-red-500">*</span></label>
+                        <input type="text" name="nama" data-label="Nama Lengkap" class="w-full border-2 border-gray-100 p-3 rounded-xl focus:border-green-500 outline-none bg-gray-50 transition-all" placeholder="Masukkan nama lengkap..." required>
+                    </div>
+                    
+                    <div id="field_nisn" class="hidden">
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">NISN <span class="text-red-500">*</span></label>
+                        <input type="number" name="nisn" data-label="NISN" class="w-full border-2 border-gray-100 p-3 rounded-xl focus:border-green-500 outline-none bg-gray-50" placeholder="10 digit angka">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Tempat Lahir <span class="text-red-500">*</span></label>
+                        <input type="text" name="tempat_lahir" data-label="Tempat Lahir" class="w-full border-2 border-gray-100 p-3 rounded-xl focus:border-green-500 outline-none bg-gray-50" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Tanggal Lahir <span class="text-red-500">*</span></label>
+                        <input type="date" name="tgl_lahir" data-label="Tanggal Lahir" class="w-full border-2 border-gray-100 p-3 rounded-xl focus:border-green-500 outline-none bg-gray-50" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step" id="step2">
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-green-800">
+                    <i class="fas fa-users-viewfinder"></i> Data Orang Tua
+                </h3>
+                <div class="space-y-4">
+                    <div class="p-4 bg-gray-50 rounded-2xl border border-gray-200">
+                        <label class="block text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">Data Ayah</label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" name="nama_ayah" data-label="Nama Ayah" placeholder="Nama Lengkap Ayah" class="w-full border p-3 rounded-lg" required>
+                            <input type="number" name="hp_ayah" data-label="No HP Ayah" placeholder="No HP/WA Ayah" class="w-full border p-3 rounded-lg" required>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-2xl border border-gray-200">
+                        <label class="block text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">Data Ibu</label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" name="nama_ibu" data-label="Nama Ibu" placeholder="Nama Lengkap Ibu" class="w-full border p-3 rounded-lg" required>
+                            <input type="text" name="pekerjaan_ibu" data-label="Pekerjaan Ibu" placeholder="Pekerjaan Ibu" class="w-full border p-3 rounded-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step" id="step3">
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-green-800">
+                    <i class="fas fa-graduation-cap"></i> Riwayat Sekolah
+                </h3>
+                <div id="field_asal_sekolah" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Nama SD/MI Asal</label>
+                        <input type="text" name="asal_sekolah" data-label="Asal Sekolah" class="w-full border-2 border-gray-100 p-3 rounded-xl focus:border-green-500 outline-none bg-gray-50" placeholder="Contoh: SDN 01 Jakarta">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Tahun Lulus</label>
+                        <input type="number" name="tahun_lulus" data-label="Tahun Lulus" class="w-full border-2 border-gray-100 p-3 rounded-xl focus:border-green-500 outline-none bg-gray-50" placeholder="2024">
+                    </div>
+                </div>
+                <div id="mi_notice" class="p-6 text-center text-gray-500 italic bg-gray-50 rounded-xl border-2 border-dashed">
+                    Bagian ini akan dilewati untuk pendaftar MI.
+                </div>
+            </div>
+
+            <div class="flex justify-between mt-10">
+                <button type="button" id="prevBtn" class="bg-gray-200 text-gray-700 px-8 py-3 rounded-xl hover:bg-gray-300 font-bold transition-all hidden">
+                    <i class="fas fa-arrow-left mr-2"></i> Sebelumnya
+                </button>
+                <button type="button" id="nextBtn" class="bg-blue-600 text-white px-8 py-3 rounded-xl hover:bg-blue-700 font-bold transition-all ml-auto shadow-lg shadow-blue-200">
+                    Lanjut <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+                <button type="submit" id="submitBtn" class="bg-green-600 text-white px-8 py-3 rounded-xl hover:bg-green-700 font-bold transition-all ml-auto hidden shadow-lg shadow-green-200">
+                    <i class="fab fa-whatsapp mr-2 text-lg"></i> Kirim Pendaftaran
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const steps = document.querySelectorAll(".step");
+        const nextBtn = document.getElementById("nextBtn");
+        const prevBtn = document.getElementById("prevBtn");
+        const submitBtn = document.getElementById("submitBtn");
+        const form = document.getElementById("ppdbForm");
+        let currentStep = 0;
+
+        function toggleJenjang() {
+            const jenjang = document.querySelector('input[name="jenjang"]:checked').value;
+            const nisnField = document.getElementById("field_nisn");
+            const asalSekolahFields = document.getElementById("field_asal_sekolah");
+            const miNotice = document.getElementById("mi_notice");
+
+            if (jenjang === "MTS") {
+                nisnField.classList.remove("hidden");
+                nisnField.querySelector('input').setAttribute('required', 'true');
+                asalSekolahFields.classList.remove("hidden");
+                miNotice.classList.add("hidden");
+            } else {
+                nisnField.classList.add("hidden");
+                nisnField.querySelector('input').removeAttribute('required');
+                asalSekolahFields.classList.add("hidden");
+                miNotice.classList.remove("hidden");
+            }
+        }
+
+        // Modal Function
+        function showAlert(msg) {
+            document.getElementById('modalMessage').innerText = msg;
+            document.getElementById('customModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('customModal').classList.add('hidden');
+        }
+
+        function validateStep() {
+            const currentInputs = steps[currentStep].querySelectorAll("input[required]");
+            for (let input of currentInputs) {
+                if (!input.value.trim()) {
+                    showAlert(`Kolom "${input.getAttribute('data-label')}" belum diisi!`);
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function updateStep() {
+            steps.forEach((s, i) => s.classList.toggle("active", i === currentStep));
+            
+            prevBtn.classList.toggle("hidden", currentStep === 0);
+            
+            if (currentStep === steps.length - 1) {
+                nextBtn.classList.add("hidden");
+                submitBtn.classList.remove("hidden");
+            } else {
+                nextBtn.classList.remove("hidden");
+                submitBtn.classList.add("hidden");
+            }
+        }
+
+        nextBtn.addEventListener("click", () => {
+            if (validateStep()) {
+                currentStep++;
+                updateStep();
+                window.scrollTo(0,0);
+            }
+        });
+
+        prevBtn.addEventListener("click", () => {
+            currentStep--;
+            updateStep();
+            window.scrollTo(0,0);
+        });
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            if (!document.getElementById('ppdbForm').checkValidity()) return;
+
+            const jenjang = document.querySelector('input[name="jenjang"]:checked').value;
+            const formData = new FormData(form);
+            const adminWA = "6282381844193";
+            
+            let message = `*PENDAFTARAN SISWA BARU (${jenjang})*%0A`;
+            message += `Tanggal: ${new Date().toLocaleDateString('id-ID')}%0A`;
+            message += "-----------------------------%0A";
+            
+            formData.forEach((value, key) => {
+                if(value && key !== 'jenjang') {
+                    message += `*${key.replace('_', ' ').toUpperCase()}*: ${value}%0A`;
+                }
+            });
+
+            const waUrl = `https://wa.me/${adminWA}?text=${message}`;
+            window.open(waUrl, "_blank");
+        });
+
+        // Initialize
+        toggleJenjang();
+    </script>
+</body>
+</html>
